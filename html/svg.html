@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
-    <!-- <script lang="javascript">
+    <script lang="javascript">
         function Red(evt) {
             var circle = evt.target;
             circle.setAttribute("style", "fill:red");
@@ -14,18 +15,32 @@
             var circle = evt.target;
             circle.setAttribute("style", "fill:green");
         }
-    </script> -->
+    </script>
 </head>
 <body>
-    <!-- <svg>
+    <svg width="150" height="150">
         <circle id="circle" cx="50" cy="50" r="50" fill="green" onmouseover="Red(evt)" onmouseout="Green(evt)"/>
-    </svg> -->
-    <svg>
-        <rect id="lightStandard" x="150" y="150" width="60" height="200" fill="black"/>
-        <circle id="redLight" cx="179" cy="195" r=25 fill="red" />
-        <circle id="amberLight" cx="179" cy="255" r="25" fill="yellow" />
-        <circle id="greenLight" cx="179" cy="315" r="25" fill="green"/>
     </svg>
+    <svg width="80" height="220">
+        <rect id="lightStandard" x="10" y="10" width="61" height="200" fill="black"/>
+        <circle id="redLight" cx="41" cy="50" r=25 fill="red" />
+        <circle id="amberLight" cx="41" cy="110" r="25" fill="yellow" />
+        <circle id="greenLight" cx="41" cy="170" r="25" fill="green"/>
+    </svg>
+
+    <svg width="400" height="400">
+        <polygon points="10,25 30,35 10,85 100,85 70,35 100,25" fill="purple"/>
+        <polygon points="10,150 30,170 50,132 65,196 78,165 96,170" style="stroke:orange; fill:none; stroke-width: 5;" />
+        <line x1="150" y1="100" x2="150" y2="150" style="stroke:blue; stroke-width:3"/>
+        <ellipse cx="250" cy="150" rx="30" ry="55" fill="green" />
+        <text x="20" y="20" style="stroke:black; stroke-width:1">Examples of SVG shapes and text</text>
+    </svg>
+
+    <svg id="mySVG">
+        <image href="../media/img/orange.jpg" width="250" height="100"/>
+    </svg>
+
+    
     
 </body>
 </html>
