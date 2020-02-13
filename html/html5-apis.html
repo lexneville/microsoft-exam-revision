@@ -18,8 +18,7 @@
             localStorage.setItem("cart1", JSON.stringify(customer));
             LoadFromStorage();
             document.getElementById("btnAdd").onclick = function () {
-                localStorage.setItem(document.getElementById("toStorageKey").value,
-                    document.getElementById("toStorageValue").value);
+                localStorage.setItem(document.getElementById("toStorageKey").value, document.getElementById("toStorageValue").value);
                 LoadFromStorage();
             }
             document.getElementById("btnRemove").onclick = function () {
