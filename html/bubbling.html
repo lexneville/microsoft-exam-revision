@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        #middle {
+            width: 50%;
+            height: 50%;
+            position: relative;
+            top: 25%;
+            left: 25%;
+            background-color: green;
+        }
+        #inner {
+            width: 50%;
+            height: 50%;
+            position: relative;
+            top: 25%;
+            left: 25%;
+            background-color: blue;
+        }
+        .scale {
+            transform: scale(1.5);
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // Change boolean to True to  cascade/bubble
+            document.getElementById("outer").addEventListener("click", outerClickDiv, false);
+            document.getElementById("middle").addEventListener("click", middleClickDiv, false);
+            document.getElementById("inner").addEventListener("click", innerClickDiv, false);
+            document.getElementById("clearButton").addEventListener("click", clearText);
+            document.getElementById("aRange").addEventListener("change", rangeChangeEvent, false);
+            document.getElementById("aText").addEventListener("change", rangeChangeEvent, false);
+            document.getElementById("yellowBox").addEventListener("mouseenter", yellowBoxEnter);
+            document.getElementById("yellowBox").addEventListener("mouseleave", yellowBoxLeave);
+        }
+        function outerClickDiv() {
+            appendText("Outer div clicked");
+        }
+        function middleClickDiv() {
+            appendText("Middle div clicked");
+        }
+        function innerClickDiv() {
+            appendText("inner div clicked");
+            //Next line stops bubbling/cascading of events
+            event.cancelBubble = true;
+        }
+        function appendText(s) {
+            var li = document.createElement("li");
+            li.innerText = s;
+            document.getElementById("eventOrder").appendChild(li);
+        }
+        function clearText() {
+            var ol = document.createElement("ol");
+            ol.id = "eventOrder";
+            document.getElementById("bod").replaceChild(ol, document.getElementById("eventOrder"));
+        }
+        function rangeChangeEvent() {
+            document.getElementById("rangeValue").innerText = this.value;
+        }
+        function yellowBoxEnter() {
+            this.classList.add("scale");
+        }
+        function yellowBoxLeave() {
+            this.classList.remove("scale");
+        }
+    </script>
+</head>
+<body id="bod">
+    <div id="outer">
+        <div id="middle">
+            <div id="inner">  
+            </div>
+        </div>
+    </div>
+    <ol id="eventOrder">
+    </ol>
+    <button type="button" id="clearButton">Clear</button>
+    <input id="aRange" type="range" max="200" min="0" value="0"/>
+    <input id="aText" type="text"/>
+    <div id="rangeValue"></div>
+    <div id="yellowBox" style="width: 50px; height: 50px; margin: 0 auto; background-color: yellow;"></div>
+
+</body>
+</html>

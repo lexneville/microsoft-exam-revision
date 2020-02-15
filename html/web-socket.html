@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var wsConnection;
+            var chatBox = document.getElementById("chatWindow");
+            var disconnectButton = document.getElementById("Disconnect");
+            var connectButton = document.getElementById("Connect");
+            var sendButton = document.getElementById("Send");
+            var msgToSend = document.getElementById("msgSendText");
+            disconnectButton.onclick = function() {
+                wsConnection.close();
+            }
+            connectButton.onclick = function() {
+                wsConnection = new WebSocket('ws://studygroup.70480.com', ['soap', 'xmpp']);
+            }
+            sendButton.onclick = function() {
+                if (wsConnection.readyState == WebSocket.OPEN) {
+                    wsConnection.send(msgToSend.value);
+                }
+                else 
+                    return;
+                NewLine();
+                chatBox.value = chatBox.value + "You: " + msgToSend.value;
+                msgToSend.value = '';
+            }
+            wsConnection.onopen= function() {
+                chatBox.textContent = chatBox.textContent + "System: Connection has been established";
+            }
+            wsConnection.onerror = function(err) {
+                NewLine();
+                chatBox.value = chatBox.value + "System: Error Occured! ";
+            }
+            wsConnection.onclose = function() {
+                NewLine();
+                chatBox.value = chatBox.value + "System: Connection has been closed.";
+            }
+            wsConnection.onmessage = function(msg) {
+                NewLine();
+                chatBox.value = chatBox.value + "Them: " + msg.data;
+            }
+            function NewLine () {
+                chatBox.textContent = chatBox.textContent + '\r\n';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div align="center">
+        <div>
+            70-480 Study Group Chat Forum
+        </div>
+        <div>
+            <textarea id="chatWindow" style="height: 500px; width: 300px">
+            </textarea>
+        </div>
+        <div>
+            <input type="text" id="msgSendText" style="width: 300px;"/>
+        </div>
+        <div>
+            <button id="Disconnect">Disconnect</button>
+            <button id="Connect">Connect</button>
+            <button id="Send">Send</button>
+        </div>
+    </div>
+    
+</body>
+</html>

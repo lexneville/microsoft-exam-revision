@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            document.getElementById("target").addEventListener("anAction", customEventHandler);
+        }
+        myEvent = new CustomEvent(
+            "anAction",
+            {
+            detail: {
+                description: "A description of the event",
+                timeOfEvent: new Date(),
+                eventCode: 2
+            },
+            bubbles: true,
+            cancelable: true
+            }
+        );
+        function customEventHandler() {
+            alert(window.event.detail.description);
+        };
+        document.dispatchEvent(myEvent);
+    </script>
+</head>
+<body>
+    <div id="target">Hi</div>
+</body>
+</html>
