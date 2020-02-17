@@ -28,13 +28,13 @@
                 };
                 document.getElementById("Div3").onclick = function () {
                     var insideDiv3 = "Div3";
-                    AFunction();
                     BFunctionWithParam(insideDiv3);
+                    AFunction();
                 };
                 function AFunction() {
                     var x;
                     alert(insideDiv3);
-                }
+                };
                 function BFunctionWithParam(p) {
                     alert(p);
                     alert(localVar);

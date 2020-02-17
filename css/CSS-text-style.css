@@ -1,0 +1,60 @@
+h1 {
+    color: #00ff00;
+}
+h2 {
+    color: green;
+}
+h3 {
+    color: rgb(0, 255, 0);
+}
+#bold {
+    font-weight: bold;
+    text-align: right;
+}
+#italic {
+    font-style: italic;
+    text-align: center;
+}
+#font {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    text-indent: 50px;
+}
+#spaceLetter {
+    letter-spacing: 12px;
+}
+#spaceWord {
+    word-spacing: 22px;
+}
+#background {
+    width: 200px;
+    height: 200px;
+    background-image: url('../media/img/orange.jpg');
+    background-size: 50px;
+}
+#boxShadow {
+    position: absolute;
+    left: 300px;
+    top: 400px;
+    width: 100px;
+    height: 100px;
+    border: solid 1px black;
+    box-shadow: 10px 10px;
+}
+#blurShadow {
+    position: absolute;
+    left: 450px;
+    top: 400px;
+    width: 100px;
+    height: 100px;
+    border: solid 1px black;
+    box-shadow: 10px 10px 10px;
+}
+#spreadShadow {
+    position: absolute;
+    left: 600px;
+    top: 400px;
+    width: 100px;
+    height: 100px;
+    border: solid 1px black;
+    box-shadow: 10px 10px 10px 20px;
+}
