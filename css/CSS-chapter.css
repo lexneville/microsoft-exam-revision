@@ -58,3 +58,50 @@ h3 {
     border: solid 1px black;
     box-shadow: 10px 10px 10px 20px;
 }
+#insetShadow {
+    position: absolute;
+    left: 750px;
+    top: 400px;
+    width: 100px;
+    height: 100px;
+    border: solid 1px black;
+    box-shadow: 10px 10px 10px inset;
+}
+#textShadow {
+    position: absolute;
+    left: 50px;
+    top: 600px;
+    text-shadow: -10px 10px 5px;
+}
+
+#full {
+    position: absolute;
+    left: 150px;
+    top: 600px;
+    text-shadow: -10px 10px 5px;
+}
+#clipped {
+    position: absolute;
+    left: 350px;
+    top: 600px;
+    clip-path: circle(20%);
+}
+#positioningBox {
+    margin: 10px;
+    border: solid 2px black;
+    position: relative;
+    top: 220px;
+    width: 800px;
+    height: 600px;
+}
+#toBeAbsolute {
+    position: absolute;
+    left: 250px;
+    top: 250px;
+}
+#toBeRelative {
+    position: relative;
+    left: 250px;
+    top: 250px;
+    transform: rotate(180deg);
+}
